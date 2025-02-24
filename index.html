@@ -9,52 +9,92 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Personal website of Peer von Bremen" />
+    <style>
+      body {
+        font-family: Helvetica, Verdana, sans-serif;
+        font-style: italic;
+        max-width: 800px;
+        margin: 50px auto;
+        line-height: 1.5;
+        padding: 20px;
+        background-color: oklch(91.87% 0.003 264.54);
+      }
+      
+      .quote-container {
+        display: grid;
+        gap: 30px;
+      }
+      
+      .quote-card {
+        background: oklch(99.4% 0 0);
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease;
+      }
+      
+      .quote-card:hover {
+        transform: translateY(-4px);
+      }
+      
+      .quote-text {
+        font-size: 1.42rem;
+        color: oklch(14.38% 0.007 256.88);
+        line-height: 1.6;
+        margin: 0 0 12px 0;
+      }
+      
+      .quote-author {
+        font-size: 1.2rem;
+        color: #718096;
+        font-style: italic;
+        text-align: right;
+        margin: 0;
+      }
+    </style>
   </head>
-  <body
-    style="
-      font-size: 2em;
-      font-family: Helvetica, Verdana, sans-serif;
-      font-style: italic;
-      max-width: 800px;
-      margin: 70px auto;
-      line-height: 1.5;
-      text-align: center;
-    "
-  >
+  <body>
+    <div class="quote-container">
+      <div class="quote-card">
+        <p class="quote-text">
+          [Our world] "never has enough conscience, nor enough tolerance,
+          idealism, justice, compassion, wisdom, humility, self-sacrifice for the
+          greater good, integrity, courtesy, poetry, laughter, and generosity of
+          substance and spirit. It is these elements that I urge you to carry into
+          your careers, and remember that the great game of life is not about
+          money; it is about doing your best to build the world anew."
+        </p>
+        <p class="quote-author">John C. Bogle</p>
+      </div>
     <div>
-      <blockquote>
-        [Our world] "never has enough conscience, nor enough tolerance,
-        idealism, justice, compassion, wisdom, humility, self-sacrifice for the
-        greater good, integrity, courtesy, poetry, laughter, and generosity of
-        substance and spirit. It is these elements that I urge you to carry into
-        your careers, and remember that the great game of life is not about
-        money; it is about doing your best to build the world anew."
-        <br />- John C. Bogle
-      </blockquote>
-    </div>
+
+    <div class="quote-container">
+      <div class="quote-card">
+        <p class="quote-text">"You never change things by fighting the existing reality.
+          To change something, build a new model that makes the existing model obsolete."
+        </p>
+        <p class="quote-author">R. Buckminster Fuller</p>
+      </div>
     <div>
-      <br />
-      <blockquote>
-        "You never change things by fighting the existing reality. To change
-        something, build a new model that makes the existing model obsolete."
-        <br />– R. Buckminster Fuller
-      </blockquote>
-    </div>
+
+    <div class="quote-container">
+      <div class="quote-card">
+        <p class="quote-text">
+          "The highest form which civilization can reach is a seamless web of deserved trust. 
+          Not much procedure, just totally reliable people correctly trusting one another."
+        </p>
+        <p class="quote-author">Charlie Munger</p>
+      </div>
     <div>
-      <br />
-      <blockquote>
-        "The highest form which civilization can reach is a seamless web of deserved trust. 
-        Not much procedure, just totally reliable people correctly trusting one another."
-        <br />- Charlie Munger
-      </blockquote>
-    </div>
-        <div>
-      <br />
-      <blockquote>
-        "A fit body, a calm mind, a house full of love. 
-        These things cannot be bought  —  they must be earned."
-        <br />- Naval Ravikant
-      </blockquote>
-    </div>
+
+    <div class="quote-container">
+      <div class="quote-card">
+        <p class="quote-text">
+          "A fit body, a calm mind, a house full of love. 
+          These things cannot be bought  —  they must be earned."
+        </p>
+        <p class="quote-author">Naval Ravikant</p>
+      </div>
+    <div>
   </body>
 </html>

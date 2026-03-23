@@ -1,91 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peer von Bremen</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏞</text></svg>"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Personal website of Peer von Bremen" />
-    <style>
-      body {
-        font-family: Helvetica, Verdana, sans-serif;
-        font-style: italic;
-        max-width: 800px;
-        margin: 50px auto;
-        line-height: 1.5;
-        padding: 20px;
-        background-color: oklch(91.87% 0.003 264.54);
-      }
-      
-      .quote-container {
-        display: grid;
-        gap: 30px;
-      }
-      
-      .quote-card {
-        background: oklch(99.4% 0 0);
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.2s ease;
-      }
-      
-      .quote-card:hover {
-        transform: translateY(-4px);
-      }
-      
-      .quote-text {
-        font-size: 1.42rem;
-        color: oklch(14.38% 0.007 256.88);
-        line-height: 1.6;
-        margin: 0 0 12px 0;
-      }
-      
-      .quote-author {
-        font-size: 1.2rem;
-        color: #718096;
-        font-style: italic;
-        text-align: right;
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="quote-container">
-      <div class="quote-card">
-        <p class="quote-text">
-          [Our world] "never has enough conscience, nor enough tolerance,
-          idealism, justice, compassion, wisdom, humility, self-sacrifice for the
-          greater good, integrity, courtesy, poetry, laughter, and generosity of
-          substance and spirit. It is these elements that I urge you to carry into
-          your careers, and remember that the great game of life is not about
-          money; it is about doing your best to build the world anew."
-        </p>
-        <p class="quote-author">John C. Bogle</p>
-      </div>
-    <div>
+    <meta name="description" content="personal profile of Peer von Bremen" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏞️</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <div class="quote-container">
-      <div class="quote-card">
-        <p class="quote-text">"You never change things by fighting the existing reality.
-          To change something, build a new model that makes the existing model obsolete."
-        </p>
-        <p class="quote-author">R. Buckminster Fuller</p>
-      </div>
-    <div>
+<body>
 
-    <div class="quote-container">
-      <div class="quote-card">
-        <p class="quote-text">
-          "The highest form which civilization can reach is a seamless web of deserved trust. 
-          Not much procedure, just totally reliable people correctly trusting one another."
-        </p>
-        <p class="quote-author">Charlie Munger</p>
-      </div>
-    <div>
+    <header class="site-header">
+        <div class="container header-container">
+            <h1 class="site-title">Peer von Bremen</h1>
+            <nav class="site-nav">
+                <a href="#about">About</a>
+                <a href="#values">Values</a>
+                <a href="#interests">Interests</a>
+            </nav>
+        </div>
+    </header>
 
-  </body>
+    <main>
+        <section id="about" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2 class="hero-greeting">Hoi and welcome</h2>
+                    <p class="hero-statement">
+                        I am passionate about <strong>outdoor activities with alpine panorama</strong>,
+                        <br>maintaining a long-term focus on <strong>preserving our environment</strong> and
+                        <br>applying <strong>technological innovations</strong> that augment human capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="values" class="section">
+            <div class="container">
+                <h2 class="section-heading">My Values</h2>
+
+                <div class="quotes-grid">
+                    <article class="quote-card">
+                        <blockquote class="quote-text">
+                            <p>[Our world] never has enough conscience, nor enough tolerance, idealism, justice,
+                                compassion, wisdom, humility, self-sacrifice for the greater good, integrity, courtesy,
+                                poetry, laughter, and generosity of substance and spirit. It is these elements that I
+                                urge you to carry into your careers, and remember that the great game of life is not
+                                about money; it is about doing your best to build the world anew.</p>
+                        </blockquote>
+                        <cite class="quote-author">— John C. Bogle</cite>
+                    </article>
+
+                    <article class="quote-card">
+                        <blockquote class="quote-text">
+                            <p>You never change things by fighting the existing reality. To change something, build a
+                                new model that makes the existing model obsolete.</p>
+                        </blockquote>
+                        <cite class="quote-author">— R. Buckminster Fuller</cite>
+                    </article>
+
+                    <article class="quote-card">
+                        <blockquote class="quote-text">
+                            <p>The highest form which civilization can reach is a seamless web of deserved trust. Not
+                                much procedure, just totally reliable people correctly trusting one another.</p>
+                        </blockquote>
+                        <cite class="quote-author">— Charlie Munger</cite>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <section id="interests" class="section">
+            <div class="container">
+                <h2 class="section-heading">My Interests</h2>
+
+                <div class="interests-grid">
+                    <div class="ability-card">
+                        <div class="ability-icon">🏔️ 🏃‍♂️</div>
+                        <h3 class="ability-title">outdoor activities</h3>
+                        <p class="ability-desc">especially trail running in awe-inspiring alpine environments
+                            to enjoy panoramic views
+                        </p>
+                    </div>
+
+                    <div class="ability-card">
+                        <div class="ability-icon">🌱 🌳</div>
+                        <h3 class="ability-title">sustainability</h3>
+                        <p class="ability-desc">dedicated to sustainable principles with a focus
+                            on long-term impact to benefit future generations</p>
+                    </div>
+
+                    <div class="ability-card">
+                        <div class="ability-icon">🚲 🧠</div>
+                        <h3 class="ability-title">humane technology</h3>
+                        <p class="ability-desc">exploring and implementing novel tools and methods to
+                            enhance our capabilities like a bicycle for the mind</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                contact me via peer [at] domain
+            </p>
+        </div>
+    </footer>
+
+</body>
+
 </html>

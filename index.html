@@ -5,47 +5,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peer von Bremen</title>
-    <meta name="description" content="personal profile of Peer von Bremen" />
+    <meta name="description" content="Personal profile of Peer von Bremen, focusing on human-centered AI." />
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏞️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    
+    <!-- Nature-inspired background -->
+    <div class="bg-mesh">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
 
-    <header class="site-header">
+    <header class="site-header glass-panel">
         <div class="container header-container">
-            <h1 class="site-title">Peer von Bremen</h1>
+            <h1 class="site-title">Hoi & Moin</h1>
             <nav class="site-nav">
-                <a href="#about">About</a>
-                <a href="#values">Values</a>
-                <a href="#interests">Interests</a>
+                <a href="/about">About</a>
+                <a href="/now">Now</a>
+                <a href="/trails">Trails</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="about" class="section hero-section">
+        <section id="interests" class="section">
             <div class="container">
-                <div class="hero-content">
-                    <h2 class="hero-greeting">Hoi & Moin</h2>
-                    <p class="hero-statement">
-                        I am passionate about moving outdoors with <strong>beautiful panorama</strong>,
-                        <br>maintaining a <strong>long-term focus</strong> on preserving our planet, and
-                        <br>applying <strong>technological innovations</strong> to augment human capabilities.
-                    </p>
+                <div class="interests-grid">
+                    <div class="ability-card glass-panel">
+                        <h3 class="ability-title">human-centered AI & tech</h3>
+                        <p class="ability-desc">crafting tools that amplify human capabilities and deepen connections</p>
+                    </div>
+
+                    <div class="ability-card glass-panel">
+                        <h3 class="ability-title">long-term thinking</h3>
+                        <p class="ability-desc">enrich the life of future generations through compounding improvements</p>
+                    </div>
+
+                    <div class="ability-card glass-panel">
+                        <h3 class="ability-title">outdoor exploration</h3>
+                        <p class="ability-desc">experiencing flow moving through awe-inspiring nature and living sustainably with enough</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <hr class="section-divider">
-
         <section id="values" class="section">
             <div class="container">
-                <h2 class="section-heading">My Values</h2>
-
                 <div class="quotes-grid">
-                    <article class="quote-card">
+                    <article class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>[Our world] never has enough conscience, nor enough tolerance, idealism, justice,
                                 compassion, wisdom, humility, self-sacrifice for the greater good, integrity, courtesy,
@@ -56,7 +69,7 @@
                         <cite class="quote-author">— John C. Bogle</cite>
                     </article>
 
-                    <article class="quote-card">
+                    <article class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>You never change things by fighting the existing reality. To change something, build a
                                 new model that makes the existing model obsolete.</p>
@@ -64,7 +77,7 @@
                         <cite class="quote-author">— R. Buckminster Fuller</cite>
                     </article>
 
-                    <article class="quote-card">
+                    <article class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>The highest form which civilization can reach is a seamless web of deserved trust. Not
                                 much procedure, just totally reliable people correctly trusting one another.</p>
@@ -74,51 +87,67 @@
                 </div>
             </div>
         </section>
-
-        <hr class="section-divider">
-
-        <section id="interests" class="section">
-            <div class="container">
-                <h2 class="section-heading">My Interests</h2>
-
-                <div class="interests-grid">
-                    <div class="ability-card">
-                        <div class="ability-icon">🏔️ 🏃‍♂️</div>
-                        <h3 class="ability-title">exploring the outdoors</h3>
-                        <p class="ability-desc">cultivating awe and inspiration in beautiful nature
-                            through movement, flow and living in the moment
-                        </p>
-                    </div>
-
-                    <div class="ability-card">
-                        <div class="ability-icon">🌱 🌳</div>
-                        <h3 class="ability-title">long-term thinking</h3>
-                        <p class="ability-desc">focus on sustainability and compounding improvements (Kaizen)
-                            to enrich the life of future generations</p>
-                    </div>
-
-                    <div class="ability-card">
-                        <div class="ability-icon">🚲 🧠</div>
-                        <h3 class="ability-title">human-centered tech</h3>
-                        <p class="ability-desc">crafting trustworthy tools that amplify our potential and deepen human
-                            connection
-                            <br>— bicycles for the mind
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>
-                contact me via peer [at] domain
-            </p>
+    <!-- Overlay -->
+    <div id="page-overlay" class="overlay">
+        <div class="overlay-content glass-panel">
+            <button id="close-overlay" class="close-btn" aria-label="Close">✕</button>
+            <h2 id="overlay-title" class="section-heading">Title</h2>
+            <div id="overlay-body">
+                <p>to be defined</p>
+            </div>
         </div>
-    </footer>
+    </div>
 
+    <script>
+        window.onload = function() {
+            // Wait a brief moment to ensure layout is complete before scrolling
+            setTimeout(() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'auto'
+                });
+            }, 50);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('page-overlay');
+            const closeBtn = document.getElementById('close-overlay');
+            const overlayTitle = document.getElementById('overlay-title');
+            const overlayBody = document.querySelector('#overlay-body p');
+            
+            const overlayContents = {
+                'About': 'I grew up in northern Germany and found my home in the alps. Always curious to learn about applying technology innovation.',
+                'Now': 'Learning about how to apply agentic AI and natural language computer interaction.',
+                'Trails': 'Make me feel alive and cherish our beautiful planet.'
+            };
+            
+            const links = document.querySelectorAll('.site-nav a');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const title = e.target.textContent;
+                    overlayTitle.textContent = title;
+                    overlayBody.textContent = overlayContents[title] || 'to be defined';
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

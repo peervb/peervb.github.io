@@ -3,6 +3,15 @@
  * Redesigned for Human-Centered AI with a light nature-inspired awe aesthetic.
  */
 
+/* --- Fonts (self-hosted, SIL Open Font License 1.1: Manrope: fonts/OFL-Manrope.txt) --- */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('fonts/manrope-latin.woff2') format('woff2');
+}
+
 /* --- Variables --- */
 :root {
   /* Stronger contrast for better readability */
@@ -12,13 +21,14 @@
   
   --color-primary: #022c22;
   --color-accent: #047857; /* Darker emerald for links and highlights */
+  --color-accent-hover: #065f46; /* One step darker for hover */
   
   --color-glass-bg: rgba(255, 255, 255, 0.85); /* Less transparent */
   --color-glass-border: rgba(255, 255, 255, 0.9);
   --color-glass-hover: rgba(255, 255, 255, 0.95);
 
   /* Typography */
-  --font-family-base: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-base: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-heading: var(--font-family-base);
   --line-height-base: 1.6;
 
@@ -28,6 +38,9 @@
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --border-radius: 16px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* --- Base Reset --- */
@@ -43,7 +56,13 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text-main);
   background-color: var(--color-bg-base);
-  background-image: url('matterhorn_bg.png');
+  /* Fallback for browsers without image-set() type() support */
+  background-image: url('images/matterhorn.jpg');
+  background-image: image-set(
+    url('images/matterhorn.avif') type('image/avif'),
+    url('images/matterhorn.webp') type('image/webp'),
+    url('images/matterhorn.jpg') type('image/jpeg')
+  );
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -52,6 +71,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Portrait crop (summit + hiker centred) for narrow screens */
+@media (max-width: 768px) {
+  body {
+    background-image: url('images/matterhorn-portrait.jpg');
+    background-image: image-set(
+      url('images/matterhorn-portrait.avif') type('image/avif'),
+      url('images/matterhorn-portrait.webp') type('image/webp'),
+      url('images/matterhorn-portrait.jpg') type('image/jpeg')
+    );
+  }
+}
+
+/* Lock page scroll while an overlay is open */
+body:has(dialog[open]) {
+  overflow: hidden;
 }
 
 h1,
@@ -71,7 +107,14 @@ a {
 }
 
 a:hover {
-  color: #047857;
+  color: var(--color-accent-hover);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 p {
@@ -142,7 +185,7 @@ p {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-glass-border);
   border-radius: var(--border-radius);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+  transition: transform 0.4s var(--ease-out), 
               background 0.4s ease, 
               box-shadow 0.4s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -187,30 +230,17 @@ p {
   font-size: 0.95rem;
   font-weight: 500;
   opacity: 0.8;
+  /* 44px tap target; negative margins keep the visual layout unchanged */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.5rem;
+  margin: -10px -0.5rem;
 }
 
 .site-nav a:hover {
   opacity: 1;
   color: var(--color-accent);
-}
-
-/* --- Hero Section --- */
-.hero-section {
-  padding-top: 6rem;
-  padding-bottom: 4rem;
-}
-
-.hero-content {
-  max-width: 750px;
-}
-
-.hero-greeting {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #064e3b, #059669);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* --- Values (Quotes) --- */
@@ -272,12 +302,6 @@ p {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.ability-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-}
-
 .ability-title {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
@@ -291,41 +315,65 @@ p {
   font-weight: 400;
 }
 
-/* --- Overlay --- */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+/* --- Overlay (native <dialog>) --- */
+dialog.overlay-content {
+  /* reset UA dialog styles, keep the glass look */
+  margin: auto;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-glass-border);
+  width: 90%;
+  max-width: 600px;
+  max-height: calc(100% - 2rem);
+  padding: 3rem;
+  overflow: auto;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.4s ease,
+              transform 0.4s var(--ease-out),
+              overlay 0.4s allow-discrete,
+              display 0.4s allow-discrete;
+}
+
+dialog.overlay-content[open] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@starting-style {
+  dialog.overlay-content[open] {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+dialog.overlay-content::backdrop {
+  background: rgba(240, 253, 244, 0);
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  transition: background 0.4s ease,
+              backdrop-filter 0.4s ease,
+              overlay 0.4s allow-discrete,
+              display 0.4s allow-discrete;
+}
+
+dialog.overlay-content[open]::backdrop {
   background: rgba(240, 253, 244, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
 }
 
-.overlay.active {
-  opacity: 1;
-  pointer-events: auto;
+@starting-style {
+  dialog.overlay-content[open]::backdrop {
+    background: rgba(240, 253, 244, 0);
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+  }
 }
 
-.overlay-content {
-  position: relative;
-  width: 90%;
-  max-width: 600px;
-  padding: 3rem;
-  transform: translateY(20px) scale(0.95);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.overlay.active .overlay-content {
-  transform: translateY(0) scale(1);
+.overlay-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  opacity: 0.8;
 }
 
 .close-btn {
@@ -349,26 +397,53 @@ p {
   transform: rotate(90deg);
 }
 
-/* --- Footer --- */
-.site-footer {
-  text-align: center;
-  padding: var(--spacing-lg) 0 var(--spacing-md);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  opacity: 0.8;
+/* Without JavaScript: #about / #now / #trails show the text as a panel */
+html:not(.js) dialog.overlay-content:target {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  opacity: 1;
+  transform: none;
+}
+
+html:not(.js) .close-form {
+  display: none;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .hero-greeting {
-    font-size: 2.5rem;
-  }
-
   .site-header {
     margin: 0;
     bottom: var(--spacing-sm);
     width: calc(100% - 2 * var(--spacing-sm));
     border-radius: 20px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .glow {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  dialog::backdrop {
+    transition-duration: 0.01ms !important;
+  }
+
+  .glass-panel:hover,
+  .quote-card:hover,
+  .ability-card:hover,
+  .close-btn:hover {
+    transform: none;
   }
 }
 

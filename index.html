@@ -6,18 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peer von Bremen</title>
     <meta name="description" content="Personal profile of Peer von Bremen, focusing on human-centered AI." />
-    <link rel="icon"
+    <link rel="canonical" href="https://bremen.ch/" />
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bremen.ch/" />
+    <meta property="og:site_name" content="Peer von Bremen" />
+    <meta property="og:title" content="Peer von Bremen" />
+    <meta property="og:description" content="Personal profile of Peer von Bremen, focusing on human-centered AI." />
+    <meta property="og:image" content="https://bremen.ch/images/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Illustrated green mountain with the name Peer von Bremen" />
+    <meta property="og:locale" content="en" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Peer von Bremen" />
+    <meta name="twitter:description" content="Personal profile of Peer von Bremen, focusing on human-centered AI." />
+    <meta name="twitter:image" content="https://bremen.ch/images/og-image.jpg" />
+
+    <!-- Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏞️</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Self-hosted font (Outfit, SIL OFL 1.1, see fonts/OFL.txt) -->
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Peer von Bremen",
+        "url": "https://bremen.ch/",
+        "image": "https://bremen.ch/images/og-image.jpg",
+        "description": "Personal profile of Peer von Bremen, focusing on human-centered AI.",
+        "knowsAbout": ["Human-centered AI", "Long-term thinking", "Outdoor exploration"]
+    }
+    </script>
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
     
     <!-- Nature-inspired background -->
-    <div class="bg-mesh">
+    <div class="bg-mesh" aria-hidden="true">
         <div class="glow glow-1"></div>
         <div class="glow glow-2"></div>
     </div>
@@ -25,10 +59,10 @@
     <header class="site-header glass-panel">
         <div class="container header-container">
             <h1 class="site-title">Hoi & Moin</h1>
-            <nav class="site-nav">
-                <a href="/about">About</a>
-                <a href="/now">Now</a>
-                <a href="/trails">Trails</a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="#about" aria-haspopup="dialog" aria-controls="about">About</a>
+                <a href="#now" aria-haspopup="dialog" aria-controls="now">Now</a>
+                <a href="#trails" aria-haspopup="dialog" aria-controls="trails">Trails</a>
             </nav>
         </div>
     </header>
@@ -38,18 +72,18 @@
             <div class="container">
                 <div class="interests-grid">
                     <div class="ability-card glass-panel">
-                        <h3 class="ability-title">human-centered AI & tech</h3>
+                        <h2 class="ability-title">human-centered AI & tech</h2>
                         <p class="ability-desc">crafting tools that amplify human capabilities and deepen connections</p>
                     </div>
 
                     <div class="ability-card glass-panel">
-                        <h3 class="ability-title">long-term thinking</h3>
-                        <p class="ability-desc">enrich the life of future generations through compounding improvements</p>
+                        <h2 class="ability-title">long-term thinking</h2>
+                        <p class="ability-desc">enrich the lives of future generations through compounding improvements</p>
                     </div>
 
                     <div class="ability-card glass-panel">
-                        <h3 class="ability-title">outdoor exploration</h3>
-                        <p class="ability-desc">experiencing flow moving through awe-inspiring nature and living sustainably with enough</p>
+                        <h2 class="ability-title">outdoor exploration</h2>
+                        <p class="ability-desc">experiencing flow moving through awe-inspiring nature and living sustainably with what's enough</p>
                     </div>
                 </div>
             </div>
@@ -58,7 +92,7 @@
         <section id="values" class="section">
             <div class="container">
                 <div class="quotes-grid">
-                    <article class="quote-card glass-panel">
+                    <figure class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>[Our world] never has enough conscience, nor enough tolerance, idealism, justice,
                                 compassion, wisdom, humility, self-sacrifice for the greater good, integrity, courtesy,
@@ -66,39 +100,55 @@
                                 urge you to carry into your careers, and remember that the great game of life is not
                                 about money; it is about doing your best to build the world anew.</p>
                         </blockquote>
-                        <cite class="quote-author">— John C. Bogle</cite>
-                    </article>
+                        <figcaption class="quote-author">— John C. Bogle</figcaption>
+                    </figure>
 
-                    <article class="quote-card glass-panel">
+                    <figure class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>You never change things by fighting the existing reality. To change something, build a
                                 new model that makes the existing model obsolete.</p>
                         </blockquote>
-                        <cite class="quote-author">— R. Buckminster Fuller</cite>
-                    </article>
+                        <figcaption class="quote-author">— R. Buckminster Fuller</figcaption>
+                    </figure>
 
-                    <article class="quote-card glass-panel">
+                    <figure class="quote-card glass-panel">
                         <blockquote class="quote-text">
                             <p>The highest form which civilization can reach is a seamless web of deserved trust. Not
                                 much procedure, just totally reliable people correctly trusting one another.</p>
                         </blockquote>
-                        <cite class="quote-author">— Charlie Munger</cite>
-                    </article>
+                        <figcaption class="quote-author">— Charlie Munger</figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Overlay -->
-    <div id="page-overlay" class="overlay">
-        <div class="overlay-content glass-panel">
-            <button id="close-overlay" class="close-btn" aria-label="Close">✕</button>
-            <h2 id="overlay-title" class="section-heading">Title</h2>
-            <div id="overlay-body">
-                <p>to be defined</p>
-            </div>
-        </div>
-    </div>
+    <!-- Overlays: native modal dialogs. The texts live in the HTML, so they are
+         also reachable without JavaScript (via #about, #now, #trails). -->
+    <dialog id="about" class="overlay-content glass-panel" aria-labelledby="about-title">
+        <form method="dialog" class="close-form">
+            <button class="close-btn" aria-label="Close">✕</button>
+        </form>
+        <h2 id="about-title" class="section-heading">About</h2>
+        <p>I grew up in northern Germany and found my home in the Alps. Always curious how new technology can be put to good use.</p>
+    </dialog>
+
+    <dialog id="now" class="overlay-content glass-panel" aria-labelledby="now-title">
+        <form method="dialog" class="close-form">
+            <button class="close-btn" aria-label="Close">✕</button>
+        </form>
+        <h2 id="now-title" class="section-heading">Now</h2>
+        <p>Learning about how to apply agentic AI and natural language computer interaction.</p>
+        <p class="overlay-meta">Updated September 2026</p>
+    </dialog>
+
+    <dialog id="trails" class="overlay-content glass-panel" aria-labelledby="trails-title">
+        <form method="dialog" class="close-form">
+            <button class="close-btn" aria-label="Close">✕</button>
+        </form>
+        <h2 id="trails-title" class="section-heading">Trails</h2>
+        <p>Trails make me feel alive and remind me to cherish our beautiful planet.</p>
+    </dialog>
 
     <script>
         window.onload = function() {
@@ -112,39 +162,36 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
-            const overlay = document.getElementById('page-overlay');
-            const closeBtn = document.getElementById('close-overlay');
-            const overlayTitle = document.getElementById('overlay-title');
-            const overlayBody = document.querySelector('#overlay-body p');
-            
-            const overlayContents = {
-                'About': 'I grew up in northern Germany and found my home in the alps. Always curious to learn about applying technology innovation.',
-                'Now': 'Learning about how to apply agentic AI and natural language computer interaction.',
-                'Trails': 'Make me feel alive and cherish our beautiful planet.'
-            };
-            
-            const links = document.querySelectorAll('.site-nav a');
-            links.forEach(link => {
+            let trigger = null;
+
+            document.querySelectorAll('.site-nav a[aria-controls]').forEach(link => {
+                const dialog = document.getElementById(link.getAttribute('aria-controls'));
+                if (!dialog || typeof dialog.showModal !== 'function') return; // fall back to #anchor
+
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const title = e.target.textContent;
-                    overlayTitle.textContent = title;
-                    overlayBody.textContent = overlayContents[title] || 'to be defined';
-                    overlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
+                    trigger = link;
+                    dialog.showModal(); // moves focus into the dialog, Esc closes it
                 });
             });
 
-            closeBtn.addEventListener('click', () => {
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            document.querySelectorAll('dialog.overlay-content').forEach(dialog => {
+                // Close when clicking the backdrop (outside the panel)
+                dialog.addEventListener('click', (e) => {
+                    if (e.target !== dialog) return;
+                    const r = dialog.getBoundingClientRect();
+                    const inside = e.clientX >= r.left && e.clientX <= r.right &&
+                                   e.clientY >= r.top && e.clientY <= r.bottom;
+                    if (!inside) dialog.close();
+                });
 
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
+                // Return focus to the link that opened the dialog
+                dialog.addEventListener('close', () => {
+                    if (trigger) {
+                        trigger.focus({ preventScroll: true });
+                        trigger = null;
+                    }
+                });
             });
         });
     </script>
